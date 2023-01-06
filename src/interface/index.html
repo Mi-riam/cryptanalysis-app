@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <label>
+        <p>Choose whad do you want to do:</p>
+        <select id="actionType">
+          <option value="1">Hash password</option>
+          <option value="2">Crack hash</option>
+        </select>
+      </label>
+
+      <section>
+        <form id="crackFrom">
+          <label>
+            <p>Your hash to crack:</p>
+            <input type="text" name="hash" id="hash" placeholder="Hash" />
+          </label>
+
+          <label>
+            <p>Choose attack mode:</p>
+            <select id="attackType">
+              <option value="0">Straight</option>
+              <option value="1">Combination</option>
+              <option value="3">Brute-force</option>
+            </select>
+          </label>
+
+          <label>
+            <p>
+              Write hash mode id:
+              <br />
+              <a
+                href="https://hashcat.net/wiki/doku.php?id=hashcat#:~:text=session%2Dwhitelist%3D0x2ae611db%0A%0A%2D%20%5B-,Hash%20modes,-%5D%20%2D%0A%0A%20%20%20%20%20%20%23%20%7C%20Name%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7C%20Category%0A%20%20%3D%3D%3D%3D%3D%3D%2B%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2B%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%20%20%20%20900"
+                target="_blank"
+                rel="noopener noreferer"
+                >See alll hash modes on the hashcat docs</a
+              >
+            </p>
+
+            <input
+              id="methodType"
+              type="text"
+              id="methodType"
+              placeholder="Hash mode ID (default 0 - MD5)"
+            />
+          </label>
+
+          <button type="submit" id="crackFromSubmit">Crack it!</button>
+        </form>
+
+        <form id="genHashFrom">
+          <label>
+            <p>Your password to hash:</p>
+            <input
+              type="text"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+          </label>
+
+          <label>
+            <p>Choose hash mode:</p>
+            <select id="hashMode">
+              <option value="md5">MD5</option>
+              <option value="md4">MD4</option>
+              <option value="sha1">SHA1</option>
+              <option value="sha256">SHA2-256</option>
+            </select>
+          </label>
+          <button type="submit" id="genHashFromSubmit">Crack it!</button>
+        </form>
+
+        <div>
+          <h2>Result</h2>
+          <p id="resultField"></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
