@@ -5,7 +5,7 @@ import timeout from "express-timeout-handler";
 const options = {
   timeout: 300000, // 5 minutes
   onTimeout: (_req: Request, res: Response) => {
-    res.status(503).send("Timeout. Please retry.");
+    res.status(503).send({ data: "Timeout. Please retry." });
   },
 };
 

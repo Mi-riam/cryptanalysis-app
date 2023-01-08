@@ -41,9 +41,9 @@ const hashPassword = async (body) => {
       body: JSON.stringify(body),
     });
 
-    const { hash } = await response.json();
+    const { data } = await response.json();
 
-    resultFieldElement.innerText = hash || "";
+    resultFieldElement.innerText = data || "";
   } catch (e) {
     resultFieldElement.innerText = e.message;
   }
@@ -75,9 +75,9 @@ const crackHash = async (body) => {
       body: JSON.stringify(body),
     });
 
-    const { cracked } = await response.json();
+    const { data } = await response.json();
 
-    resultFieldElement.innerText = cracked || "";
+    resultFieldElement.innerText = data || "";
   } catch (e) {
     resultFieldElement.innerText = e.message;
   }

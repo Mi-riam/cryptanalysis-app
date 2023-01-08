@@ -24,9 +24,7 @@ export const crackHash = async (req: Request, res: Response) => {
 
     if (!!stderr && !stderr.includes("nvmlDeviceGetFanSpeed()")) {
       res.status(500).send({
-        error: {
-          message: `Sorry hashcat cracking proccess exited with error: ${stderr}`,
-        },
+        data: `Sorry hashcat cracking proccess exited with error: ${stderr}`,
       });
     }
 
@@ -38,14 +36,14 @@ export const crackHash = async (req: Request, res: Response) => {
     await writeFile(safeJoin("./src/hashcat-files/", "output.txt"), "", "utf8");
 
     if (!output) {
-      res
-        .status(500)
-        .send({ error: { message: "Couldn't read cracked output" } });
+      res.status(500).send({ data: "Couldn't read cracked output" });
     }
 
-    res.status(200).send({ cracked: output.split(":")[1] });
+    res.status(200).send({ data: output.split(":")[1] });
   } catch (error) {
     console.error(error);
-    res.status(500).send({ error: { message: "Internal server error" } });
+    res.status(500).send({
+      data: "Sorry, something went wrong, check if your hash or mode id are correct",
+    });
   }
 };
